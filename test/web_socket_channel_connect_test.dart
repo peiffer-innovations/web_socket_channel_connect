@@ -15,7 +15,7 @@ void main() {
   });
 
   test('success', () async {
-    var server = await HttpServer.bind('localhost', 5333);
+    final server = await HttpServer.bind('localhost', 5333);
     final completer = Completer();
 
     // ignore: unawaited_futures

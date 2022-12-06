@@ -62,11 +62,11 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text('CLOSE'),
+              child: const Text('CLOSE'),
             ),
           ],
-          content: Text('Unable to connect'),
-          title: Text('Error'),
+          content: const Text('Unable to connect'),
+          title: const Text('Error'),
         ),
       );
     }
@@ -83,20 +83,20 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(width: 16.0),
+            const SizedBox(width: 16.0),
             Expanded(
               child: TextFormField(
                 controller: _controller,
-                decoration: InputDecoration(label: Text('URL')),
+                decoration: const InputDecoration(label: Text('URL')),
                 onFieldSubmitted: (_) => _connect(),
               ),
             ),
-            SizedBox(width: 16.0),
+            const SizedBox(width: 16.0),
             ElevatedButton(
               onPressed: _connect,
-              child: Text('CONNECT'),
+              child: const Text('CONNECT'),
             ),
-            SizedBox(width: 16.0),
+            const SizedBox(width: 16.0),
           ],
         ),
       ),
@@ -155,29 +155,29 @@ class _WebSocketPageState extends State<_WebSocketPage> {
         return true;
       },
       child: Scaffold(
-        appBar: AppBar(title: Text('Connected')),
+        appBar: AppBar(title: const Text('Connected')),
         body: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: <Widget>[
               TextFormField(
                 controller: _controller,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   label: Text('Message'),
                 ),
                 maxLines: 3,
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Row(
                 children: <Widget>[
-                  Expanded(child: SizedBox()),
+                  const Expanded(child: SizedBox()),
                   ElevatedButton(
                     onPressed: _sendMessage,
-                    child: Text('SEND'),
+                    child: const Text('SEND'),
                   ),
                 ],
               ),
-              Divider(),
+              const Divider(),
               Expanded(
                 child: ListView.builder(
                   itemBuilder: (context, index) => Text(_logs[index]),
