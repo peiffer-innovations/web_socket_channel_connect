@@ -1,18 +1,18 @@
 name: 'web_socket_channel_connect'
 description: 'A wrapper to connect websockets for the web_socket_channel package that gives an error on failure.'
 homepage: 'https://github.com/peiffer-innovations/web_socket_channel_connect'
-version: '1.0.0+2'
+version: '1.0.1'
 
-environment: 
-  sdk: '>=2.18.0 <3.0.0'
+environment:
+  sdk: '>=2.19.0 <3.0.0'
 
-dependencies: 
+dependencies:
   web_socket_channel: '^2.3.0'
 
-dev_dependencies: 
+dev_dependencies:
   test: '^1.22.2'
 
-ignore_updates: 
+ignore_updates:
   - 'archive'
   - 'async'
   - 'boolean_selector'
