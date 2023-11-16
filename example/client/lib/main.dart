@@ -144,15 +144,13 @@ class _WebSocketPageState extends State<_WebSocketPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      onPopInvoked: (_) {
         try {
-          await widget.socket.sink.close();
+          widget.socket.sink.close();
         } catch (e) {
           // no-op
         }
-
-        return true;
       },
       child: Scaffold(
         appBar: AppBar(title: const Text('Connected')),

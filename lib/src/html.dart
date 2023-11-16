@@ -13,7 +13,7 @@ Future<WebSocketChannel> connect(
   Iterable<String>? protocols,
 }) async {
   // ignore: close_sinks
-  final ws = await WebSocket(uri.toString(), protocols);
+  final ws = WebSocket(uri.toString(), protocols);
 
   Completer? completer = Completer();
   final future = completer.future;
