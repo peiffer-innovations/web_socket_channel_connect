@@ -1,6 +1,7 @@
-## [1.0.3+1] - January 2, 2024
+## [1.0.4] - January 3rd, 2024
 
-* Automated dependency updates
+* Updated to be compatible with `web_socket_channel` version `2.4.1`.
+* Preparing to archive package as it's no longer necessary since `web_socket_channel` version `2.3.0`
 
 
 ## [1.0.3] - November 15th, 2023
