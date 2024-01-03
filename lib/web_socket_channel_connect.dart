@@ -2,12 +2,23 @@ import 'dart:async';
 
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-import 'src/stub.dart'
-    // ignore: uri_does_not_exist
-    if (dart.library.html) 'src/html.dart'
-    // ignore: uri_does_not_exist
-    if (dart.library.io) 'src/io.dart' as platform;
+@Deprecated('''
+This is no longer necessary as of 2.3.0 of the web_socket_channel package.  To
+update your code from this package to the direct web_socket_channel one simply
+change from:
 
+  final ws = await connectWebSocket(uri)
+
+to:
+
+  final ws = WebSocketChannel.connect(
+    uri,
+    protocols: protocols,
+  );
+
+  await ws.ready;
+```
+''')
 Future<WebSocketChannel> connectWebSocket(
   Uri uri, {
   Duration? connectionTimeout,
@@ -15,12 +26,13 @@ Future<WebSocketChannel> connectWebSocket(
   Function(EventSink<dynamic>)? onTimeout,
   Duration? pingInterval,
   Iterable<String>? protocols,
-}) =>
-    platform.connect(
-      uri,
-      connectionTimeout: connectionTimeout,
-      headers: headers,
-      onTimeout: onTimeout,
-      pingInterval: pingInterval,
-      protocols: protocols,
-    );
+}) async {
+  final channel = WebSocketChannel.connect(
+    uri,
+    protocols: protocols,
+  );
+
+  await channel.ready;
+
+  return channel;
+}
