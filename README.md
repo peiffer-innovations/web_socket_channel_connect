@@ -11,16 +11,10 @@
 
 ## Introduction
 
-A small wrapper for the [web_socket_channel](https://pub.dev/packages/web_socket_channel) package that throws a synchronous error if the connection fails.
-
-This addresses the following open issues on the [web_socket_channel](https://pub.dev/packages/web_socket_channel) package:
-* https://github.com/dart-lang/web_socket_channel/issues/226
-* https://github.com/dart-lang/web_socket_channel/issues/220
-* https://github.com/dart-lang/web_socket_channel/issues/214
-* https://github.com/dart-lang/web_socket_channel/issues/209
+**DEPRECATED**: This package is deprecated and no longer necessary since [web_socket_channel](https://pub.dev/packages/web_socket_channel) version `2.3.0`.
 
 
-## Usage
+## Old method
 
 ```dart
 import 'package:web_socket_channel_connect/web_socket_channel_connect.dart';
@@ -31,3 +25,17 @@ Future<void> main() async {
   channel.stream.listen((message) {});
 }
 ```
+
+## New method
+
+```dart
+import 'package:web_socket_channel/web_socket_channel.dart';
+
+main() async {
+  final wsUrl = Uri.parse('ws:localhost:5333');
+  final channel = WebSocketChannel.connect(wsUrl);
+
+  await channel.ready;
+
+  channel.stream.listen((message) {});
+}```
